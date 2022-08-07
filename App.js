@@ -1,6 +1,7 @@
 import React from "react";
-import { createTheme, ThemeProvider } from "@rneui/themed";
-import Component from "./components/MyComponent";
+import {createTheme, ThemeProvider, useThemeMode} from "@rneui/themed";
+import MainScreen from "./screen/main";
+import HeaderComponent from "./layout/header";
 
 const theme = createTheme({
   lightColors: {},
@@ -8,9 +9,12 @@ const theme = createTheme({
 });
 
 export default function App() {
-  return (
+    const {setMode, mode} = useThemeMode();
+
+    return (
     <ThemeProvider theme={theme}>
-      <Component />
+      <HeaderComponent/>
+      <MainScreen/>
     </ThemeProvider>
   );
 }
